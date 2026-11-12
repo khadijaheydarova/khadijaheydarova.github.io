@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://khadijaheydarova.github.io/sitemap.xml
