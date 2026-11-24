@@ -376,6 +376,7 @@ details.credits .perm{font-style:italic}
 .also a{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink);text-decoration:none;font-size:15px}
 .also a:hover,.also a:focus-visible{border-color:var(--dc,var(--lapis))}
 .also .ahw{font-weight:700;letter-spacing:.02em}
+.colophon a.mail{color:inherit;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
 </style>
 
 </head>
@@ -525,7 +526,7 @@ function renderHome(){
     '<main class="page"><section class="wotd" id="wotd" aria-label="Günün sözü"><div class="tag"><span>Günün sözü · Nəsimi lüğətindən</span><span id="wdate"></span></div><p class="def" style="grid-column:1/-1;color:var(--muted)">Yüklənir…</p></section>'+
     '<section id="sec-lugetler" class="anch" aria-labelledby="lugetler" style=""display:flex;flex-direction:column;gap:24px"><div class="shead"><h2 id="lugetler">Lüğətlər</h2></div><div class="dgrid">'+dl+'</div></section>'+
     '<section id="sec-monoqrafiya" class="anch" aria-labelledby="monoqrafiya" style=""display:flex;flex-direction:column;gap:24px"><div class="shead"><h2 id="monoqrafiya">Monoqrafiyalar</h2></div><div class="shelf">'+ml+'</div></section></main>'+
-    '<footer class="colophon"><div class="in"><span><b>Sözün tarixi</b> · © Xədicə Heydərova (<span lang="en">Khadija Heydarova</span>). Bütün hüquqlar qorunur. «Türk mənşəli arxaizmlər lüğəti»nin və «Cəfər Cabbarlının bədii dilinin izahlı lüğəti»nin müəllif hüququ AMEA Nəsimi adına Dilçilik İnstitutuna məxsusdur.</span><span>AMEA Nəsimi adına Dilçilik İnstitutu · Bakı</span><span class="ar" aria-hidden="true">سوز</span></div></footer>';
+    '<footer class="colophon"><div class="in"><span><b>Sözün tarixi</b> · © Xədicə Heydərova (<span lang="en">Khadija Heydarova</span>). Bütün hüquqlar qorunur. «Türk mənşəli arxaizmlər lüğəti»nin və «Cəfər Cabbarlının bədii dilinin izahlı lüğəti»nin müəllif hüququ AMEA Nəsimi adına Dilçilik İnstitutuna məxsusdur.</span><span>AMEA Nəsimi adına Dilçilik İnstitutu · Bakı<br>Əlaqə: <a class="mail" href="mailto:xadica.heydarova@dilchilik.science.az">xadica.heydarova@dilchilik.science.az</a></span><span class="ar" aria-hidden="true">سوز</span></div></footer>';
   window.scrollTo(0,0);
   bindGS();
   var now=new Date(), doy=Math.floor((now-new Date(now.getFullYear(),0,0))/864e5);
