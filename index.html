@@ -387,18 +387,9 @@ details.credits .perm{font-style:italic}
 <p><strong>Xədicə Heydərova (Khadija Heydarova)</strong> — Xədicə Heydərovanın lüğətləri və monoqrafiyaları · Khadija Heydarova · Dictionaries and monographs</p>
 <p>Filologiya üzrə fəlsəfə doktoru, dosent. AMEA Nəsimi adına Dilçilik İnstitutunun Azərbaycan dilinin tarixi şöbəsinin müdiri.</p>
 <h2>Lüğətlər</h2>
-<ul>
-<li>Nəsiminin anadilli əsərlərinin izahlı-ensiklopedik lüğəti. I–III cild. Bakı, 2025–2026.</li>
-<li>Nəsiminin dilində işlənən onomastik vahidlərin izahlı lüğəti (dini-təsəvvüfi və poetik onomastikon). Bakı, 2023.</li>
-<li>Heydər Əliyevin siyasi dilinin lüğəti. Bakı: Elm və təhsil, 2023.</li>
-<li>Leksikoqrafiya terminlərinin izahlı sözlüyü.</li>
-</ul>
+<ul><li><a href="/nesimi-lugeti/">Nəsiminin anadilli əsərlərinin izahlı-ensiklopedik lüğəti</a></li><li><a href="/onomastik-lugeti/">Nəsiminin dilində işlənən onomastik vahidlərin izahlı lüğəti</a></li><li><a href="/heyder-aliyev-lugeti/">Heydər Əliyevin siyasi dilinin lüğəti</a></li><li><a href="/arxaizmler-lugeti/">Türk mənşəli arxaizmlər lüğəti</a></li><li><a href="/cabbarli-lugeti/">Cəfər Cabbarlının bədii dilinin izahlı lüğəti</a></li><li><a href="/leksikoqrafiya-terminleri/">Leksikoqrafiya terminlərinin izahlı sözlüyü</a></li></ul>
 <h2>Monoqrafiyalar</h2>
-<ul>
-<li>Azərbaycan filoloji lüğətlərində ümumişlək olmayan sözlərin verilməsi. Bakı: AVROPA, 2019.</li>
-<li>Qədim və orta əsr lüğətlərinin tərtibi prinsipləri. Bakı: Elm və təhsil, 2021.</li>
-<li lang="ru">Принципы подачи омонимов в азербайджанской лексикографии. 2014.</li>
-</ul>
+<ul><li><a href="/monoqrafiya/umumislek/">Azərbaycan filoloji lüğətlərində ümumişlək olmayan sözlərin verilməsi</a></li><li><a href="/monoqrafiya/qedim/">Qədim və orta əsr lüğətlərinin tərtibi prinsipləri</a></li><li lang=ru><a href="/monoqrafiya/omonimler/">Принципы подачи омонимов в азербайджанской лексикографии</a></li></ul>
 </div></div>
 
 <script>
@@ -455,6 +446,7 @@ var DICTS={
     ph:"lemma, sözlük, diamorfiya…",
     vols:[{n:1,file:"data/terminler.json",pages:222,year:2019,cover:"img/umumislek.jpg"}]}
 };
+var PAGES={"n": "nesimi-lugeti", "o": "onomastik-lugeti", "h": "heyder-aliyev-lugeti", "a": "arxaizmler-lugeti", "c": "cabbarli-lugeti", "t": "leksikoqrafiya-terminleri", "m1": "monoqrafiya/umumislek", "m2": "monoqrafiya/qedim", "m4": "monoqrafiya/omonimler"};
 var MONO=[
   {id:"m1",kind:"Monoqrafiya",cover:"img/umumislek.jpg",pdf:"pdf/umumislek.pdf",link:["t","Leksikoqrafiya terminlərinin izahlı sözlüyündə axtar"],title:"Azərbaycan filoloji lüğətlərində ümumişlək olmayan sözlərin verilməsi",pub:"Bakı: AVROPA, 2019. 222 səh.",
    ed:"Elmi redaktor: İsmayıl Məmmədli, filologiya üzrə elmlər doktoru, professor. Rəyçilər: Nəriman Seyidəliyev, Şəhla Əhmədova.",
@@ -505,11 +497,11 @@ function renderHome(){
   var dl=["n","o","h","a","c","t"].map(function(k){var d=DICTS[k], nocov=!d.vols[0].cover;
     var chips=d.vols.length>1?d.vols.map(function(v){return '<span class="vchip"><b>'+v.roman+'</b>'+v.letters+' · '+v.pages+' səh. · '+v.year+'</span>'}).join(""):'<span class="vchip">'+d.vols[0].pages+' səh. · Bakı, '+d.vols[0].year+'</span>';
     return '<article class="dcard'+(k==="n"||k==="a"?' wide':'')+'" style="--dc:'+dc[k]+'"><div class="dband"><span class="k">'+d.kind+'</span><span class="n">'+String(counts[k]).replace(/\B(?=(\d{3})+(?!\d))/g," ")+'<small>'+unit[k]+'</small></span></div>'+
-      '<div class="dbody'+(nocov?'':' hascov')+'">'+(nocov?'':'<div class="dcovs'+(d.vols.length>1?' fan':'')+'">'+d.vols.map(function(v){return '<img src="'+cov(v.cover)+'" alt=""'+esc(d.title)+(v.roman?', '+v.roman+' cild':'')+' – üz qabığı">'}).join("")+'</div>')+'<div class="dtext"><h3>'+d.title+(d.sub?' <span class="subt">('+d.sub+')</span>':'')+'</h3><p>'+d.about+'</p>'+(d.credShort?d.credShort+'<details class="credits"><summary>'+(d.credLabel||"Tərtibçilər, redaktorlar və nəşr məlumatı")+'</summary>'+d.credFull+'</details>':'')+'<div class="dfoot"><a class="btn" href="#'+k+'">Lüğətdə axtar</a>'+chips+'</div></div></div></article>'}).join("");
+      '<div class="dbody'+(nocov?'':' hascov')+'">'+(nocov?'':'<div class="dcovs'+(d.vols.length>1?' fan':'')+'">'+d.vols.map(function(v){return '<img src="'+cov(v.cover)+'" alt=""'+esc(d.title)+(v.roman?', '+v.roman+' cild':'')+' – üz qabığı">'}).join("")+'</div>')+'<div class="dtext"><h3>'+d.title+(d.sub?' <span class="subt">('+d.sub+')</span>':'')+'</h3><p>'+d.about+'</p>'+(d.credShort?d.credShort+'<details class="credits"><summary>'+(d.credLabel||"Tərtibçilər, redaktorlar və nəşr məlumatı")+'</summary>'+d.credFull+'</details>':'')+'<div class="dfoot"><a class="btn" href="#'+k+'">Lüğətdə axtar</a><a class="btn ghost" href="/'+PAGES[k]+'/">Ətraflı</a>'+chips+'</div></div></div></article>'}).join("");
   var bc=["var(--c-n)","#5B2A3A","#2E4A3E"];
   var ml=MONO.map(function(m,i){var y=(m.pub.match(/\d{4}/)||[""])[0];
     return '<div class="book">'+(m.cover?'<a class="cover photo" href="#'+m.id+'"><img src="'+cov(m.cover)+'" alt="'+esc(m.title)+' – üz qabığı"></a>':'<a class="cover" href="#'+m.id+'" style="--bc:'+bc[i%3]+'"'+(m.lang?' lang="'+m.lang+'"':'')+'><span class="ca">'+(m.author||'Xədicə Heydərova')+'</span><span class="ct">'+m.title+'</span><span class="cy">'+y+'</span></a>')+
-      '<div class="binfo" style="display:flex;flex-direction:column;gap:10px"><p class="bp">'+m.kind+'. '+m.pub+'</p><div class="bacts">'+(m.pdf?'<a class="btn" href="#'+m.id+'-oxu">Kitabı oxu</a>':'')+'<a class="btn ghost" href="#'+m.id+'">Mündəricat</a></div></div></div>'}).join("");
+      '<div class="binfo" style="display:flex;flex-direction:column;gap:10px"><p class="bp">'+m.kind+'. '+m.pub+'</p><div class="bacts">'+(m.pdf?'<a class="btn" href="#'+m.id+'-oxu">Kitabı oxu</a>':'')+'<a class="btn ghost" href="#'+m.id+'">Mündəricat</a><a class="btn ghost" href="/'+PAGES[m.id]+'/">Ətraflı</a></div></div></div>'}).join("");
   app.innerHTML='<header class="hero"><div class="hero-in"><div>'+
     '<span class="eyebrow">Fərdi leksikoqrafiya saytı</span><div class="ttl"><h1>Sözün <span>tarixi</span></h1><span class="calli-m" aria-hidden="true">سوز</span></div>'+
     '<p class="lead">Xədicə Heydərovanın lüğətləri və monoqrafiyaları</p>'+
