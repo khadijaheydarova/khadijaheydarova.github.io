@@ -420,6 +420,7 @@ details.credits .perm{font-style:italic}
 .ten{display:block;font-family:var(--body,inherit);font-size:.62em;font-weight:500;font-style:italic;color:var(--muted);margin-top:4px;letter-spacing:0}
 .dtitle .ten{font-size:.7em}
 
+.trhint{margin:-6px 0 14px;font-size:13.5px;line-height:1.45;color:var(--muted);font-style:italic}
 .langgrp{display:inline-flex;align-items:stretch;border:1px solid currentColor;border-radius:999px;overflow:hidden;line-height:1}
 .langgrp button{font:inherit;font-size:12.5px;font-weight:700;letter-spacing:.05em;padding:6px 10px;border:0;background:transparent;color:inherit;cursor:pointer;opacity:.75}
 .langgrp button+button{border-left:1px solid currentColor}
@@ -436,7 +437,35 @@ details.credits .perm{font-style:italic}
 .topnav .langgrp.nl button{padding:5px 8px;font-size:12px}
 .topnav .langgrp.nl button[aria-pressed="true"] span{color:#14213D}
 @media (max-width:760px){.topnav .langgrp.nl{display:none}}
+@media (min-width:761px){.hero .langgrp,.backrow .langgrp{display:none}}
+.topnav .langgrp,.topnav .langgrp button{pointer-events:auto}
 .dcard,.dbody,.dtext{min-width:0}.dcovs{min-width:0;max-width:100%}.dcovs>img{min-width:0;flex:0 1 auto}.dtext h3,.ten,.dtitle,.binfo .bp{overflow-wrap:break-word;hyphens:auto}.binfo{min-width:0}.mhtext,.mhtext .mt{min-width:0;overflow-wrap:break-word;hyphens:auto}.hrow .eyebrow{min-width:0;overflow-wrap:anywhere}
+
+/* ---------- all explanations, stacked ---------- */
+.gschip.all{background:var(--gs-accent,#1F4C7A);border-color:var(--gs-accent,#1F4C7A);color:#fff;font-weight:700}
+.gschip.all:hover,.gschip.all.on{filter:brightness(1.12);color:#fff;background:var(--gs-accent,#1F4C7A)}
+.gschip.all .ico{font-size:12px;line-height:1}
+.allv{max-width:980px;margin:0 auto;padding:calc(72px + env(safe-area-inset-top,0px)) clamp(16px,4vw,32px) 60px}
+.allv .ahead{margin:14px 0 22px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.allv h1{font-family:var(--display);font-size:clamp(30px,5vw,46px);line-height:1.1;margin:6px 0 6px;color:var(--ink)}
+.allv .acount{color:var(--muted);font-size:15px;margin:0}
+.allv .asrcs{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.allv .asrcs a{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;padding:4px 11px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;background:var(--surface)}
+.allv .asrcs a:hover{border-color:var(--lapis)}
+.acard{position:relative;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--dc,var(--lapis));border-radius:10px;box-shadow:var(--shadow);padding:clamp(16px,3vw,26px);margin:0 0 18px;scroll-margin-top:80px}
+.acard .alab{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;margin:0 0 12px}
+.acard .adict{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);min-width:0}
+.acard .adict b{color:var(--dc,var(--lapis));font-size:15px}
+.acard .anum{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 6px;border-radius:999px;background:var(--dc,var(--lapis));color:#fff;font-weight:700;font-size:13px;flex:none}
+.acard .aopen{font-size:13.5px;font-weight:700;color:var(--dc,var(--lapis));text-decoration:none;white-space:nowrap}
+.acard .aopen:hover{text-decoration:underline}
+.acard .body{min-width:0}
+.acard .cite{margin-top:14px}
+.acard .aload{color:var(--muted);font-style:italic}
+.acard .aexp{display:inline-block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.also .alllink{display:inline-block;margin:0 0 10px;font-weight:700;font-size:14.5px;color:var(--lapis);text-decoration:none}
+.also .alllink:hover{text-decoration:underline}
+@media (max-width:600px){.acard .alab{flex-direction:column;align-items:flex-start}}
 </style>
 
 </head>
@@ -535,7 +564,7 @@ var MONO=[
 ];
 
 var LANG=(function(){try{var u=new URLSearchParams(location.search).get("lang");if(u==="en"||u==="az"||u==="ru"){localStorage.setItem("st-lang",u);return u}var v=localStorage.getItem("st-lang");if(v==="en"||v==="ru")return v}catch(e){}return "az"})();
-var RU={"p. ": "с. ", "pp. ": "с. ", "pp.": "с.", "pp. · Baku": "с. · Баку", "cover": "обложка", "Search the dictionary": "Искать в словаре", "Details": "Подробнее", "Read the book": "Читать книгу", "Contents": "Содержание", "Personal lexicography website": "Персональный лексикографический сайт", "Dictionaries and monographs by Khadija Heydarova": "Словари и монографии Хадиджи Гейдаровой", "PhD in Philology, Associate Professor. Head of the Department of the History of the Azerbaijani Language, Nasimi Institute of Linguistics, Azerbaijan National Academy of Sciences (ANAS).": "Доктор философии по филологии, доцент. Заведующая отделом истории азербайджанского языка Института языкознания имени Насими Национальной академии наук Азербайджана (НАНА).", "Language is not merely a means of speaking. It is the memory of a nation. I study that memory through words.": "Язык – не просто средство общения. Это память народа. Я исследую эту память через слова.", "Search all dictionaries": "Поиск по всем словарям", "Search a word or expression…": "Найти слово или выражение…", "Clear": "Очистить", "5,186": "5 186", "3,860": "3 860", "6,889": "6 889", "headwords · Nasimi dictionary, 3 vols.": "заглавных слов · словарь Насими, 3 т.", "onomastic units": "ономастических единиц", "political terms": "политических термина", "archaisms · collective dictionary, 3 vols.": "архаизмов · коллективный словарь, 3 т.", "headwords · Jabbarly dictionary": "заглавных слов · словарь Джаббарлы", "monographs": "монографии", "Word of the day": "Слово дня", "Word of the day · from the Nasimi dictionary": "Слово дня · из словаря Насими", "Loading…": "Загрузка…", "Dictionaries": "Словари", "Monographs": "Монографии", "© Khadija Heydarova (<span lang=\"az\">Xədicə Heydərova</span>). All rights reserved. Copyright in the Dictionary of Archaisms of Turkic Origin and the Explanatory Dictionary of Jafar Jabbarly's Literary Language belongs to the Nasimi Institute of Linguistics, ANAS.": "© Хадиджа Гейдарова (<span lang=\"az\">Xədicə Heydərova</span>). Все права защищены. Авторское право на «Словарь архаизмов тюркского происхождения» и «Толковый словарь художественного языка Джафара Джаббарлы» принадлежит Институту языкознания имени Насими НАНА.", "Nasimi Institute of Linguistics, ANAS · Baku<br>Contact: ": "Институт языкознания имени Насими НАНА · Баку<br>Контакт: ", "Read the entry": "Читать статью", "Another word": "Другое слово", "Contents <span style=\"font-size:.6em;font-weight:400;color:var(--muted)\">(in the language of the book)</span>": "Содержание <span style=\"font-size:.6em;font-weight:400;color:var(--muted)\">(на языке книги)</span>", "© Khadija Heydarova. All rights reserved.": "© Хадиджа Гейдарова. Все права защищены.", "Source: ": "Источник: ", " © All rights reserved.": " © Все права защищены.", "Source: «Sözün tarixi» – dictionaries and monographs by Khadija Heydarova.": "Источник: «Sözün tarixi» – словари и монографии Хадиджи Гейдаровой.", "Preparing search…": "Подготовка поиска…", "The search index could not be loaded. Please reload the page.": "Не удалось загрузить поисковый индекс. Обновите страницу.", "was not found in any dictionary.": "не найдено ни в одном словаре.", "expression": "выражение", "inside a word": "внутри слова", "First 8 words shown (": "Показаны первые 8 слов (найдено: ", " found). ": "). ", "Choose the source you want to read.": "Выберите источник, который хотите прочитать.", "Abstract and contents": "Аннотация и содержание", "Pages": "Страницы", "Previous page": "Предыдущая страница", "Page": "Страница", "Next page": "Следующая страница", "Zoom out": "Уменьшить", "Zoom in": "Увеличить", "You can select and copy the text with the mouse.": "Текст можно выделить мышью и скопировать.", "Loading the book…": "Книга загружается…", "The page could not be shown. Please try again.": "Не удалось показать страницу. Попробуйте ещё раз.", "The book could not be opened. Check your connection and reload the page.": "Не удалось открыть книгу. Проверьте подключение и обновите страницу.", "The dictionary file could not be loaded. Reload the page or open the site in full:": "Не удалось загрузить файл словаря. Обновите страницу или откройте сайт полностью:", "Copyright, editors, compilers and collectors of examples": "Авторское право, редакторы, составители и собиратели примеров", "Search a word": "Найти слово", "Type a word or expression: ": "Введите слово или выражение: ", "Also search inside the entries": "Искать также в тексте статей", "Entries and expressions open through search. Type at least two letters. ": "Статьи и выражения открываются через поиск. Введите не менее двух букв. ", "Search results": "Результаты поиска", "Type a word in the search box. When you choose a result, the entry or expression will open here.": "Введите слово в поле поиска. Выбранная статья или выражение откроется здесь.", "in the text": "в тексте", "Type at least two letters.": "Введите не менее двух букв.", "corrected version": "исправленный вариант", "Nothing found. Try “Also search inside the entries”.": "Ничего не найдено. Попробуйте «Искать также в тексте статей».", "«Corrections to errors in volumes I and II»": "«Исправления ошибок в I и II томах»", "Entry: ": "Статья: ", "Other explanations of this word": "Другие толкования этого слова", "← Results": "← Результаты", "Expression": "Выражение", "Dictionary entry": "Словарная статья", "Site sections": "Разделы сайта", "Sözün tarixi · Khadija Heydarova's dictionaries": "Sözün tarixi · словари Хадиджи Гейдаровой", "Compilers, collectors of examples and editorial board": "Составители, собиратели примеров и редакционная коллегия", "Compilers, editors and publication details": "Составители, редакторы и выходные данные", "The entries themselves are in Azerbaijani.": "Сами статьи – на азербайджанском языке.", "Abstract": "Аннотация", "Language": "Язык"};
+var RU={"p. ": "с. ", "pp. ": "с. ", "pp.": "с.", "pp. · Baku": "с. · Баку", "cover": "обложка", "Search the dictionary": "Искать в словаре", "Details": "Подробнее", "Read the book": "Читать книгу", "Contents": "Содержание", "Personal lexicography website": "Персональный лексикографический сайт", "Dictionaries and monographs by Khadija Heydarova": "Словари и монографии Хадиджи Гейдаровой", "PhD in Philology, Associate Professor. Head of the Department of the History of the Azerbaijani Language, Nasimi Institute of Linguistics, Azerbaijan National Academy of Sciences (ANAS).": "Доктор философии по филологии, доцент. Заведующая отделом истории азербайджанского языка Института языкознания имени Насими Национальной академии наук Азербайджана (НАНА).", "Language is not merely a means of speaking. It is the memory of a nation. I study that memory through words.": "Язык – не просто средство общения. Это память народа. Я исследую эту память через слова.", "Search all dictionaries": "Поиск по всем словарям", "Search a word or expression…": "Найти слово или выражение…", "Clear": "Очистить", "5,186": "5 186", "3,860": "3 860", "6,889": "6 889", "headwords · Nasimi dictionary, 3 vols.": "заглавных слов · словарь Насими, 3 т.", "onomastic units": "ономастических единиц", "political terms": "политических термина", "archaisms · collective dictionary, 3 vols.": "архаизмов · коллективный словарь, 3 т.", "headwords · Jabbarly dictionary": "заглавных слов · словарь Джаббарлы", "monographs": "монографии", "Word of the day": "Слово дня", "Word of the day · from the Nasimi dictionary": "Слово дня · из словаря Насими", "Loading…": "Загрузка…", "Dictionaries": "Словари", "Monographs": "Монографии", "© Khadija Heydarova (<span lang=\"az\">Xədicə Heydərova</span>). All rights reserved. Copyright in the Dictionary of Archaisms of Turkic Origin and the Explanatory Dictionary of Jafar Jabbarly's Literary Language belongs to the Nasimi Institute of Linguistics, ANAS.": "© Хадиджа Гейдарова (<span lang=\"az\">Xədicə Heydərova</span>). Все права защищены. Авторское право на «Словарь архаизмов тюркского происхождения» и «Толковый словарь художественного языка Джафара Джаббарлы» принадлежит Институту языкознания имени Насими НАНА.", "Nasimi Institute of Linguistics, ANAS · Baku<br>Contact: ": "Институт языкознания имени Насими НАНА · Баку<br>Контакт: ", "Read the entry": "Читать статью", "Another word": "Другое слово", "Contents <span style=\"font-size:.6em;font-weight:400;color:var(--muted)\">(in the language of the book)</span>": "Содержание <span style=\"font-size:.6em;font-weight:400;color:var(--muted)\">(на языке книги)</span>", "© Khadija Heydarova. All rights reserved.": "© Хадиджа Гейдарова. Все права защищены.", "Source: ": "Источник: ", " © All rights reserved.": " © Все права защищены.", "Source: «Sözün tarixi» – dictionaries and monographs by Khadija Heydarova.": "Источник: «Sözün tarixi» – словари и монографии Хадиджи Гейдаровой.", "Preparing search…": "Подготовка поиска…", "The search index could not be loaded. Please reload the page.": "Не удалось загрузить поисковый индекс. Обновите страницу.", "was not found in any dictionary.": "не найдено ни в одном словаре.", "expression": "выражение", "inside a word": "внутри слова", "First 8 words shown (": "Показаны первые 8 слов (найдено: ", " found). ": "). ", "Choose the source you want to read.": "Выберите источник, который хотите прочитать.", "Abstract and contents": "Аннотация и содержание", "Pages": "Страницы", "Previous page": "Предыдущая страница", "Page": "Страница", "Next page": "Следующая страница", "Zoom out": "Уменьшить", "Zoom in": "Увеличить", "You can select and copy the text with the mouse.": "Текст можно выделить мышью и скопировать.", "Loading the book…": "Книга загружается…", "The page could not be shown. Please try again.": "Не удалось показать страницу. Попробуйте ещё раз.", "The book could not be opened. Check your connection and reload the page.": "Не удалось открыть книгу. Проверьте подключение и обновите страницу.", "The dictionary file could not be loaded. Reload the page or open the site in full:": "Не удалось загрузить файл словаря. Обновите страницу или откройте сайт полностью:", "Copyright, editors, compilers and collectors of examples": "Авторское право, редакторы, составители и собиратели примеров", "Search a word": "Найти слово", "Type a word or expression: ": "Введите слово или выражение: ", "Also search inside the entries": "Искать также в тексте статей", "Entries and expressions open through search. Type at least two letters. ": "Статьи и выражения открываются через поиск. Введите не менее двух букв. ", "Search results": "Результаты поиска", "Type a word in the search box. When you choose a result, the entry or expression will open here.": "Введите слово в поле поиска. Выбранная статья или выражение откроется здесь.", "in the text": "в тексте", "Type at least two letters.": "Введите не менее двух букв.", "corrected version": "исправленный вариант", "Nothing found. Try “Also search inside the entries”.": "Ничего не найдено. Попробуйте «Искать также в тексте статей».", "«Corrections to errors in volumes I and II»": "«Исправления ошибок в I и II томах»", "Entry: ": "Статья: ", "Other explanations of this word": "Другие толкования этого слова", "← Results": "← Результаты", "Expression": "Выражение", "Dictionary entry": "Словарная статья", "Site sections": "Разделы сайта", "Sözün tarixi · Khadija Heydarova's dictionaries": "Sözün tarixi · словари Хадиджи Гейдаровой", "Compilers, collectors of examples and editorial board": "Составители, собиратели примеров и редакционная коллегия", "Compilers, editors and publication details": "Составители, редакторы и выходные данные", "The entries themselves are in Azerbaijani.": "Сами статьи – на азербайджанском языке.", "Abstract": "Аннотация", "Language": "Язык", "The entry is in Azerbaijani. To read it in English, use your browser’s translation: right-click the page and choose “Translate to English”.": "Статья – на азербайджанском языке. Чтобы прочитать её по-русски, воспользуйтесь переводчиком браузера: щёлкните правой кнопкой мыши по странице и выберите «Перевести на русский».", "All explanations together": "Все толкования вместе", "Choose «All explanations» to see every explanation together, or pick one dictionary.": "Выберите «Все толкования», чтобы увидеть все толкования вместе, или один словарь.", "Show all explanations together": "Показать все толкования вместе", "In all dictionaries": "Во всех словарях", "all explanations": "все толкования", "This word was not found in the dictionaries.": "Это слово в словарях не найдено.", "Open in the dictionary →": "Открыть в словаре →", "Corrected version": "Исправленный вариант", "This explanation could not be loaded. Please reload the page.": "Не удалось загрузить толкование. Обновите страницу."};
 function T(e){return LANG==="ru"&&RU[e]!=null?RU[e]:e}
 function L(a,e){return LANG==="az"?a:T(e)}
 function ruPl(n,a,b,c){var m=n%10,h=n%100;return m===1&&h!==11?a:m>=2&&m<=4&&(h<12||h>14)?b:c}
@@ -676,7 +705,9 @@ document.addEventListener("copy",function(ev){
     var a=document.activeElement; if(a&&(a.tagName==="INPUT"||a.tagName==="TEXTAREA")&&a.selectionStart!==a.selectionEnd)return;
     var sel=window.getSelection(), s=String(sel); if(s.replace(/\s/g,"").length<25||!ev.clipboardData)return;
     var h=location.hash.replace(/^#/,""), src="", ent=document.getElementById("entry"), c=ent&&ent.querySelector(".cite"), mm=h.match(/^(m\d)/);
-    if(c&&sel.anchorNode&&ent.contains(sel.anchorNode)) src=c.textContent.replace(/\s+/g," ").trim();
+    var card=sel.anchorNode&&sel.anchorNode.parentElement&&sel.anchorNode.parentElement.closest(".acard");
+    if(card&&card.querySelector(".cite")){src=card.querySelector(".cite").textContent.replace(/\s+/g," ").trim();h=card.id.replace(/^ac-/,"")}
+    else if(c&&sel.anchorNode&&ent.contains(sel.anchorNode)) src=c.textContent.replace(/\s+/g," ").trim();
     else if(mm){var mo=MONO.filter(function(x){return x.id===mm[1]})[0]; if(mo) src=L("Mənbə: ","Source: ")+(mo.author||"Xədicə Heydərova")+". "+mo.title+". "+String(mo.pub).replace(/<[^>]+>/g,"")+L(" © Bütün hüquqlar qorunur."," © All rights reserved.")}
     if(!src) src=L("Mənbə: «Sözün tarixi» – Xədicə Heydərovanın lüğətləri və monoqrafiyaları.","Source: «Sözün tarixi» – dictionaries and monographs by Khadija Heydarova.");
     var url="https://khadijaheydarova.github.io/"+(h&&!/^axtar/.test(h)?"#"+h:"");
@@ -724,6 +755,7 @@ function bindGS(){
   var heroEl=box.closest(".hero");
   function close(){drop.hidden=true;inp.setAttribute("aria-expanded","false");active=-1;if(heroEl)heroEl.classList.remove("gsopen")}
   function go(c){
+    if(c.dataset.all){state.gq=inp.value; shell=null; location.hash="s-"+encodeURIComponent(c.dataset.all); return}
     var it=c.__it; state.gq=inp.value; state.dict=it.src; state.q=inp.value; state.full=false; state.cur=null; shell=null;
     location.hash=it.src+it.vol+"-"+it.id+(it.x!=null?"-"+it.x:"");
   }
@@ -743,12 +775,14 @@ function bindGS(){
         var ex=it.x!=null?'<span class="gsx">'+L("ifadə","expression")+' · '+esc(sup(it.par))+'</span>':'';
         return '<button type="button" class="gschip" role="option" data-src="'+it.src+'"><span class="dot"></span>'+t+hom+ex+'</button>'});
       var more=g.items.length>8?'<span class="gsmore">+'+(g.items.length-8)+'</span>':'';
+      var nMain=allItems(g.g).length;
+      if(nMain>1) cs.unshift('<button type="button" class="gschip all" role="option" data-all="'+esc(g.g)+'"><span class="ico" aria-hidden="true">☰</span>'+L("Bütün izahlar alt-alta","All explanations together")+' · '+nMain+'</button>');
       html+='<div class="gsrow"><div class="gsw">'+(head.x!=null?'<span class="gsexp">'+gHi(head.label,q)+'</span>':gHi(sup(head.label),q))+(g.sub?'<span class="gssub">'+L("sözün içində","inside a word")+'</span>':'')+'</div><div class="gschips">'+cs.join("")+more+'</div></div>';
     });
-    if(shown.length) html+='<div class="gsfoot">'+(r.total>8?L("İlk 8 söz göstərilir (","First 8 words shown (")+r.total+L(" tapıldı). "," found). "):'')+L("Oxumaq istədiyiniz mənbəni seçin.","Choose the source you want to read.")+'</div>';
+    if(shown.length) html+='<div class="gsfoot">'+(r.total>8?L("İlk 8 söz göstərilir (","First 8 words shown (")+r.total+L(" tapıldı). "," found). "):'')+L("Bütün izahları alt-alta görmək üçün «Bütün izahlar» düyməsini, bir lüğət üçün isə həmin lüğətin adını seçin.","Choose «All explanations» to see every explanation together, or pick one dictionary.")+'</div>';
     drop.innerHTML=html; drop.hidden=false; inp.setAttribute("aria-expanded","true"); if(heroEl)heroEl.classList.add("gsopen");
     chips=[].slice.call(drop.querySelectorAll(".gschip")); var flat=[]; shown.forEach(function(g){g.items.slice(0,8).forEach(function(it){flat.push(it)})});
-    chips.forEach(function(c,i){c.__it=flat[i];c.onclick=function(){go(c)}}); active=-1;
+    var fi=0; chips.forEach(function(c){if(!c.dataset.all){c.__it=flat[fi++]}c.onclick=function(){go(c)}}); active=-1;
   }
   inp.addEventListener("input",render);
   inp.addEventListener("focus",function(){loadGIDX();if(inp.value)render()});
@@ -921,7 +955,7 @@ function cite(e,p){
   if(e.fix) return '<p class="cite">'+L("Mənbə: ","Source: ")+''+DICTS[e.dk].cite(DICTS[e.dk].vols[2])+', '+pgs(e.fix)+' ('+FIXT+'). '+L("Maddə: ","Entry: ")+''+esc(sup(e.h))+'.</p>';
   return '<p class="cite">'+L("Mənbə: ","Source: ")+''+DICTS[e.dk].cite(v,e)+(p?', '+pgs(p):'')+'. '+L("Maddə: ","Entry: ")+''+esc(sup(e.h))+'.'+(DICTS[e.dk].copy?' '+TRC(DICTS[e.dk].copy):'')+'</p>';
 }
-function srcbar(dk,e,p){var w=where(dk,e.vol,p);return '<p class="srcbar"><span class="srcdot"></span><span>'+L("Mənbə: ","Source: ")+'<b>'+DICTS[dk].title+'</b>'+(LANG!=="az"?' <i style="font-weight:400">('+DF(dk,"title")+')</i>':'')+(w?' · '+w:'')+'</span></p>'}
+function srcbar(dk,e,p){var w=where(dk,e.vol,p);return '<p class="srcbar"><span class="srcdot"></span><span>'+L("Mənbə: ","Source: ")+'<b>'+DICTS[dk].title+'</b>'+(LANG!=="az"?' <i style="font-weight:400">('+DF(dk,"title")+')</i>':'')+(w?' · '+w:'')+'</span></p>'+(LANG!=="az"?'<p class="trhint" lang="'+LANG+'">'+T('The entry is in Azerbaijani. To read it in English, use your browser’s translation: right-click the page and choose “Translate to English”.')+'</p>':'')}
 function alsoBox(dk,e,art){
   loadGIDX().then(function(){
     if(!art.isConnected)return;
@@ -934,7 +968,8 @@ function alsoBox(dk,e,art){
     if(!rows.length)return;
     rows.sort(function(a,b){return (GORD[a.src]-GORD[b.src])||(a.vol-b.vol)||(a.id-b.id)});
     var col={n:"var(--c-n)",o:"var(--c-o)",h:"var(--c-h)",a:"var(--c-a)",c:"var(--c-c)",t:"var(--c-t)"};
-    var html='<section class="also"><h4>'+L("Bu sözün digər izahları","Other explanations of this word")+'</h4><ul>'+rows.slice(0,24).map(function(it){
+    var gk=Object.keys(keys)[0];
+    var html='<section class="also"><h4>'+L("Bu sözün digər izahları","Other explanations of this word")+'</h4>'+(gk?'<a class="alllink" href="#s-'+encodeURIComponent(gk)+'">☰ '+L("Bütün izahları alt-alta göstər","Show all explanations together")+' ('+(rows.length+1)+') →</a>':'')+'<ul>'+rows.slice(0,24).map(function(it){
       var d=DICTS[it.src], v=d.vols[it.vol-1];
       return '<li><a href="#'+it.src+it.vol+'-'+it.id+'"><span class="srcdot" style="background:'+col[it.src]+'"></span><span><b>'+d.title+'</b>'+(v.roman?' · '+VOL(v.roman):'')+' — <span class="ahw">'+esc(sup(it.label))+'</span></span></a></li>'}).join("")+'</ul></section>';
     art.insertAdjacentHTML("beforeend",html);
@@ -966,6 +1001,50 @@ function showItem(dk,sel,vd){
   document.title=(x!=null&&st?st.textContent:sup(e.h))+" · Sözün tarixi";
 }
 
+
+/* ---------- all explanations of one word ---------- */
+function allItems(g){
+  if(!GIDX) return [];
+  var seen={}, rows=[];
+  GIDX.forEach(function(it){ if(it.x!=null||it.g!==g) return; var s=it.src+it.vol+"-"+it.id; if(seen[s]) return; seen[s]=1; rows.push(it); });
+  if(!rows.length) GIDX.forEach(function(it){ if(it.x==null||it.g!==g) return; var s=it.src+it.vol+"-"+it.id+"-"+it.x; if(seen[s]) return; seen[s]=1; rows.push(it); });
+  rows.sort(function(a,b){return (GORD[a.src]-GORD[b.src])||(a.vol-b.vol)||(a.id-b.id)||((a.x||0)-(b.x||0))});
+  return rows;
+}
+function renderAll(g){
+  var DCOL={n:"var(--c-n)",o:"var(--c-o)",h:"var(--c-h)",a:"var(--c-a)",c:"var(--c-c)",t:"var(--c-t)"};
+  app.innerHTML='<div class="allv"><div class="backrow"><a class="back" href="#">← <b>Sözün tarixi</b></a>'+langBtn()+'</div><div class="ahead"><span class="eyebrow">'+L("Bütün lüğətlərdə","In all dictionaries")+'</span><h1 id="ah">…</h1><p class="acount" id="ac">'+L("Yüklənir…","Loading…")+'</p></div><div id="alist"></div></div>';
+  loadGIDX().then(function(){
+    var rows=allItems(g), list=document.getElementById("alist"); if(!list) return;
+    var head=rows[0]?(rows[0].x!=null?rows[0].label:rows[0].label.replace(/[\d¹²³⁴⁵⁶⁷⁸⁹]+$/,"")):g;
+    document.getElementById("ah").textContent=head.toLocaleUpperCase(LANG==="az"?"az":LANG);
+    document.title=head+" – "+L("bütün izahlar","all explanations")+" · Sözün tarixi";
+    if(!rows.length){document.getElementById("ac").textContent=L("Bu söz lüğətlərdə tapılmadı.","This word was not found in the dictionaries.");return}
+    var dicts={}; rows.forEach(function(it){dicts[it.src]=(dicts[it.src]||0)+1});
+    var nd=Object.keys(dicts).length;
+    document.getElementById("ac").innerHTML=(LANG==="en"?rows.length+(rows.length===1?" explanation":" explanations")+" in "+nd+(nd===1?" dictionary":" dictionaries"):LANG==="ru"?rows.length+" "+ruPl(rows.length,"толкование","толкования","толкований")+" в "+nd+" "+ruPl(nd,"словаре","словарях","словарях"):rows.length+" izah · "+nd+" lüğətdə")+
+      '<ul class="asrcs">'+Object.keys(dicts).sort(function(a,b){return GORD[a]-GORD[b]}).map(function(k){var first=rows.filter(function(r){return r.src===k})[0];return '<li><a href="#ac-'+first.src+first.vol+'-'+first.id+'" data-jump="1"><span class="srcdot" style="background:'+DCOL[k]+'"></span>'+GSRC[k]+(dicts[k]>1?' · '+dicts[k]:'')+'</a></li>'}).join("")+'</ul>';
+    list.innerHTML=rows.map(function(it,i){
+      var key=it.src+it.vol+"-"+it.id+(it.x!=null?"-"+it.x:"");
+      return '<article class="acard" id="ac-'+key+'" style="--dc:'+DCOL[it.src]+'"><div class="alab"><span class="adict"><span class="anum">'+(i+1)+'</span><span><b>'+DICTS[it.src].title+'</b><span id="aw-'+key+'"></span></span></span><a class="aopen" href="#'+key+'">'+L("Lüğətdə aç →","Open in the dictionary →")+'</a></div><div class="abody"><p class="aload">'+L("Yüklənir…","Loading…")+'</p></div></article>'}).join("");
+    list.addEventListener("click",function(ev){var a=ev.target.closest("a[data-jump]");if(a){ev.preventDefault();var el=document.getElementById(a.getAttribute("href").slice(1));if(el)el.scrollIntoView({behavior:"smooth",block:"start"})}});
+    document.querySelector(".asrcs")&&document.querySelector(".asrcs").addEventListener("click",function(ev){var a=ev.target.closest("a[data-jump]");if(a){ev.preventDefault();var el=document.getElementById(a.getAttribute("href").slice(1));if(el)el.scrollIntoView({behavior:"smooth",block:"start"})}});
+    rows.forEach(function(it){
+      var key=it.src+it.vol+"-"+it.id+(it.x!=null?"-"+it.x:"");
+      volP(it.src,it.vol).then(function(d){
+        var card=document.getElementById("ac-"+key); if(!card) return;
+        var e=d.entries[it.id]; if(!e) return;
+        var p, html, x=it.x;
+        if(x!=null&&e.subs&&e.subs[x]){p=e.subp&&e.subp[x];html='<span class="aexp">'+L("İfadə","Expression")+' · '+esc(sup(e.h))+'</span>'+e.subs[x]}
+        else {p=e.p;html=e.html}
+        var w=where(it.src,e.vol,p); var aw=document.getElementById("aw-"+key); if(aw) aw.textContent=w?' · '+w:'';
+        card.querySelector(".abody").innerHTML=(e.sec?'<p class="sec">'+esc(e.sec)+'</p>':'')+(e.fix?'<p class="fixnote">'+L("Düzəldilmiş variant","Corrected version")+' · '+pgs(e.fix)+'</p>':'')+'<div class="body">'+html+'</div>'+cite(e,p)+(LANG!=="az"&&it===rows[0]?'':'');
+        highlight(card.querySelector(".body"),g);
+      }).catch(function(){var card=document.getElementById("ac-"+key);if(card)card.querySelector(".abody").innerHTML='<p class="aload">'+L("Bu izah yüklənmədi. Səhifəni yeniləyin.","This explanation could not be loaded. Please reload the page.")+'</p>'});
+    });
+    if(LANG!=="az") list.insertAdjacentHTML("beforebegin",'<p class="trhint" lang="'+LANG+'">'+T('The entry is in Azerbaijani. To read it in English, use your browser’s translation: right-click the page and choose “Translate to English”.')+'</p>');
+  }).catch(function(){var c=document.getElementById("ac");if(c)c.textContent=L("Axtarış faylı açılmadı. Səhifəni yeniləyin.","The search index could not be loaded. Please reload the page.")});
+}
 /* ---------- routing ---------- */
 var pendingGo=null, navIO=null, heroIO=null;
 function navSet(id){[].forEach.call(document.querySelectorAll("#topnav a"),function(a){var on=a.dataset.go===id;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current")})}
@@ -1024,7 +1103,7 @@ document.getElementById("topnav").addEventListener("click",function(e){
   else { pendingGo=id; if(location.hash&&location.hash!=="#"){location.hash="";} else route(); }
 });
 function route(){
-  var isHome=!/^#?(?:[nohtac]\d?(?:-\d+){0,2}|axtar|m\d(?:-oxu)?)$/.test(location.hash)||location.hash===""||location.hash==="#";
+  var isHome=!/^#?(?:[nohtac]\d?(?:-\d+){0,2}|axtar|m\d(?:-oxu)?|s-.+)$/.test(location.hash)||location.hash===""||location.hash==="#";
   document.body.classList.toggle("home",isHome);
   var nav=document.getElementById("topnav"); if(nav){ if(!isHome){if(navIO){navIO.disconnect();navIO=null}if(heroIO){heroIO.disconnect();heroIO=null}navSet(null)}}
   routeInner();
@@ -1036,6 +1115,7 @@ function routeInner(){
   if(m=h.match(/^([nohtac])(\d-\d+(?:-\d+)?)$/)) return renderDict(m[1],m[2]);
   if(m=h.match(/^([nohtac])\d?$/)) { state.cur=null; return renderDict(m[1],null); }
   if(h==="axtar") return renderDict("n",null);
+  if(m=h.match(/^s-(.+)$/)) { shell=null; reader=null; var gw; try{gw=decodeURIComponent(m[1])}catch(e){gw=m[1]} window.scrollTo(0,0); return renderAll(norm(gw).replace(/\d+$/,"")); }
   if(m=h.match(/^(m\d)-oxu$/)) { shell=null; return renderReader(m[1]); }
   if(/^m\d$/.test(h)) { shell=null; reader=null; return renderMono(h); }
   shell=null; state.cur=null; reader=null; renderHome();
