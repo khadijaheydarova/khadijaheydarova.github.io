@@ -704,7 +704,7 @@ function renderHome(){
       '<div class="acts"><a class="btn" href="#n'+w.v+'-'+w.id+'">'+L("Maddəni oxu","Read the entry")+'</a><button type="button" class="btn ghost" id="wnext">'+L("Başqa söz","Another word")+'</button></div>';
     var nb=document.getElementById("wnext"); if(nb) nb.onclick=function(){show(i+1+Math.floor(Math.random()*40))};
   }
-  (WOTD?Promise.resolve(WOTD):INLINE.wotd?Promise.resolve(INLINE.wotd):fetch("data/gunun-sozu.json").then(function(r){if(!r.ok)throw 0;return r.json()})).then(function(d){WOTD=d;show(doy)}).catch(function(){var el=document.getElementById("wotd");if(el)el.hidden=true});
+  (WOTD?Promise.resolve(WOTD):INLINE.wotd?Promise.resolve(INLINE.wotd):fetch("data/gunun-sozu.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw 0;return r.json()})).then(function(d){WOTD=d;show(doy)}).catch(function(){var el=document.getElementById("wotd");if(el)el.hidden=true});
 }
 function renderMono(id){
   var m=MONO.filter(function(x){return x.id===id})[0]; if(!m) return renderHome();
@@ -745,7 +745,7 @@ var GIDX=null, GSORT=null, gLoading=null;
 var GSRC=GSRCF(), GORD={n:0,o:1,h:2,a:3,c:4,t:5}, ROMG={1:"I",2:"II",3:"III"};
 function loadGIDX(){
   if(GIDX) return Promise.resolve(GIDX);
-  if(!gLoading) gLoading=(INLINE.gidx?Promise.resolve(INLINE.gidx):fetch("data/axtaris.json").then(function(r){if(!r.ok)throw 0;return r.json()})).then(function(a){
+  if(!gLoading) gLoading=(INLINE.gidx?Promise.resolve(INLINE.gidx):fetch("data/axtaris.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw 0;return r.json()})).then(function(a){
     GIDX=a.map(function(r){var k=norm(r[0]);return {label:r[0],src:r[1],vol:r[2],id:r[3],x:r.length>4?r[4]:null,par:r[5]||null,k:k,g:k.replace(/\d+$/,"")}});
     GSORT=GIDX.slice().sort(function(a,b){return a.k<b.k?-1:a.k>b.k?1:0});
     return GIDX;
@@ -900,7 +900,7 @@ function prep(dk,n,d){
 }
 function etext(e){ if(e.t==null){ var t=document.createElement("div"); t.innerHTML=e.html; e.t=norm(t.textContent); } return e.t; }
 var VOLP={};
-function volP(dk,n){var key=dk+n;if(!VOLP[key]){var v=DICTS[dk].vols[n-1];VOLP[key]=fetch(v.file).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(d){return prep(dk,n,d)}).catch(function(e){delete VOLP[key];throw e})}return VOLP[key]}
+function volP(dk,n){var key=dk+n;if(!VOLP[key]){var v=DICTS[dk].vols[n-1];VOLP[key]=fetch(v.file,{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(d){return prep(dk,n,d)}).catch(function(e){delete VOLP[key];throw e})}return VOLP[key]}
 function getDict(dk,cb){
   if(D[dk])return cb(D[dk]);
   if(!loading[dk]) loading[dk]=Promise.all(DICTS[dk].vols.map(function(v){return volP(dk,v.n)}))
